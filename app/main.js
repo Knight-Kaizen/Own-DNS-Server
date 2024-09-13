@@ -10,7 +10,9 @@ const udpSocket = dgram.createSocket("udp4");
 
 udpSocket.on("message", (buf, rinfo) => {
   try {
-    const response = Buffer.from("1234100000000000");
+    const response = Buffer.from(
+        `1001101001010000000000000000000000000000000000000000000000000000000000000000000000000000000`
+    );
     udpSocket.send(response, rinfo.port, rinfo.address);
   } catch (e) {
     console.log(`Error receiving data: ${e}`);
